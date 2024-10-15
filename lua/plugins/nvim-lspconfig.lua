@@ -11,7 +11,21 @@ return {
 
         local lsp = require("lspconfig")
         if vim.fn.executable("pylsp") then
-            lsp["pylsp"].setup { settings = {}, on_attach = attach }
+            lsp["pylsp"].setup {
+                settings = {
+                    pylsp = {
+                        plugins = {
+                            flake8 = {
+                                maxLineLength = 250
+                            },
+                            pycodestyle = {
+                                maxLineLength = 250
+                            }
+                        }
+                    }
+                },
+                on_attach = on_attach
+            }
         end
         if vim.fn.executable("clangd") then
             lsp["clangd"].setup { filetypes = {"c", "cpp", "cc", "h" }, on_attach = attach }
