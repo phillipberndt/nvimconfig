@@ -33,8 +33,8 @@ vim.o.mouse = ""
 vim.o.signcolumn = "yes"
 vim.g.mapleader = ","
 
-vim.keymap.set("n", "p", "+p")
-vim.keymap.set("n", "y", "+y")
+vim.keymap.set({"v", "n", "o"}, "P", "\"+p")
+vim.keymap.set({"v", "n", "o"}, "Y", "\"+y")
 
 
 -- Load plugins
