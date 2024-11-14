@@ -30,5 +30,8 @@ return {
         if vim.fn.executable("clangd") then
             lsp["clangd"].setup { filetypes = {"c", "cpp", "cc", "h" }, on_attach = attach }
         end
+        if vim.fn.executable("gopls") then
+            lsp["gopls"].setup { on_attach = attach }
+        end
     end,
 }
