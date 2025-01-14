@@ -29,12 +29,15 @@ vim.o.sw = 4
 vim.o.et = true
 vim.o.wrap = true
 vim.o.fdm = "marker"
-vim.o.mouse = ""
 vim.o.signcolumn = "yes"
 vim.g.mapleader = ","
 
 vim.keymap.set({"v", "n", "o"}, "P", "\"+p")
 vim.keymap.set({"v", "n", "o"}, "Y", "\"+y")
+
+vim.cmd [[
+unmenu PopUp.How-to\ disable\ mouse
+]]
 
 
 -- Load plugins
