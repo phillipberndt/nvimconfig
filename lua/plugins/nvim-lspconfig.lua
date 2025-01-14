@@ -2,7 +2,7 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufRead", "BufNewFile" },
     config = function()
-        local attach = function(client, bufnr)
+        local on_attach = function(client, bufnr)
             vim.keymap.set("n", "gd", vim.lsp.buf.definition, {buffer = bufnr, desc = "Go to definition"})
             vim.keymap.set("n", "gr", vim.lsp.buf.references, {buffer = bufnr, desc = "Show references"})
             vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, {buffer = bufnr, desc = "Auto-format code"})
