@@ -33,5 +33,8 @@ return {
         if vim.fn.executable("gopls") then
             lsp["gopls"].setup { on_attach = attach }
         end
+        if vim.fn.executable("rust-analyzer") then
+            lsp["rust_analyzer"].setup { on_attach = attach }
+        end
     end,
 }
