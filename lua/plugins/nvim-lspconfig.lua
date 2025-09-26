@@ -9,9 +9,8 @@ return {
             vim.keymap.set("n", "K", vim.lsp.buf.hover, {buffer = bufnr, desc = "Hover"})
         end
 
-        local lsp = require("lspconfig")
         if vim.fn.executable("pylsp") then
-            lsp["pylsp"].setup {
+            vim.lsp.config("pylsp", {
                 settings = {
                     pylsp = {
                         plugins = {
@@ -25,16 +24,20 @@ return {
                     }
                 },
                 on_attach = on_attach
-            }
+            })
+            vim.lsp.enable("pylsp")
         end
         if vim.fn.executable("clangd") then
-            lsp["clangd"].setup { filetypes = {"c", "cpp", "cc", "h" }, on_attach = attach }
+            vim.lsp.config("clangd", { filetypes = {"c", "cpp", "cc", "h" }, on_attach = attach })
+            vim.lsp.enable("clangd")
         end
         if vim.fn.executable("gopls") then
-            lsp["gopls"].setup { on_attach = attach }
+            vim.lsp.config("gopls", { on_attach = attach })
+            vim.lsp.enable("gopls")
         end
         if vim.fn.executable("rust-analyzer") then
-            lsp["rust_analyzer"].setup { on_attach = attach }
+            vim.lsp.config("rust_analyzer", { on_attach = attach })
+            vim.lsp.enable("rust_analyzer")
         end
     end,
 }
